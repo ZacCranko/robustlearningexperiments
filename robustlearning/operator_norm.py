@@ -60,11 +60,11 @@ def operator_norm(layer, ord = 2, **kwargs):
     
   with tf.variable_scope(None, default_name='operator_norm'):
     if ord == 1:
-      w = layer.kernel
+      abs_w = tf.abs(layer.kernel)
       if isinstance(layer, tf.keras.layers.Conv2D):
-        sum_w = tf.reduce_sum(tf.abs(w), [0, 1, 3])
+        sum_w = tf.reduce_sum(abs_w, [0, 1, 3])
       else:
-        sum_w = tf.reduce_sum(tf.abs(w), 1)
+        sum_w = tf.reduce_sum(abs_w, 1)
 
       return tf.reduce_max(sum_w)
 
@@ -76,10 +76,10 @@ def operator_norm(layer, ord = 2, **kwargs):
         return power_iterate_dense(layer, num_iter)
 
     elif ord == np.inf:
-      w = layer.kernel
+      abs_w = tf.abs(layer.kernel)
       if isinstance(layer, tf.keras.layers.Conv2D):
-        sum_w = tf.reduce_sum(tf.abs(w), [0, 1, 2])
+        sum_w = tf.reduce_sum(abs_w, [0, 1, 2])
       else:
-        sum_w = tf.reduce_sum(tf.abs(w), 0)
+        sum_w = tf.reduce_sum(abs_w, 0)
 
       return tf.reduce_max(sum_w)
