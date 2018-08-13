@@ -55,8 +55,8 @@ def power_iterate_dense(layer, num_iter):
     v = tf.stop_gradient(v)
     return tf.reduce_sum(u * tf.matmul(weights, v))
 
-def operator_norm(layer, ord = 2, **kwargs):
-  """Compute operator norm for a Keras layer."""
+def opnorm(layer, ord = 2, **kwargs):
+  """Compute operator norm for a tf.keras.layer."""
     
   with tf.variable_scope(None, default_name='operator_norm'):
     if ord == 1:
