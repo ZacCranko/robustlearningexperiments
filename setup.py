@@ -2,9 +2,9 @@
 from setuptools import find_packages
 from setuptools import setup
 
-setup(name='cleverhans',
+setup(name='robust learning',
       version='2.1.0',
-      url='https://github.com/tensorflow/cleverhans',
+      url='https://github.com/ZacCranko/robustlearningexperiments/',
       license='Apache 2.0',
       install_requires=[
         #   'nose',
