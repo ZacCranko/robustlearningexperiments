@@ -1,8 +1,8 @@
 
-from setuptools import find_packages
+from setuptools import find_packages``
 from setuptools import setup
 
-setup(name='robust learning',
+setup(name='robustlearning',
       version='2.1.0',
       url='https://github.com/ZacCranko/robustlearningexperiments/',
       license='Apache 2.0',
